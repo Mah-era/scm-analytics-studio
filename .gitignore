@@ -7,4 +7,3 @@ __pycache__/
 data/*.sqlite
 data/.matplotlib/
 exports/
-offline_app/offline_app_smoke.png
