@@ -320,6 +320,6 @@ See `docs/STORAGE_MAP.md` for the complete storage table.
 
 ## Current Status
 
-The project now contains the requested offline app, SCM modules, advanced planning/analytics features, CLI batch workflow, local API, MCP-style tool calling, local skills, fixture packs, organized documentation, UAT checklist, and local storage documentation.
+The project now contains the local Streamlit app, SCM modules, advanced planning/analytics features, CLI batch workflow, local API, MCP-style tool calling, local skills, fixture packs, organized documentation, UAT checklist, and local storage documentation.
 
 The latest verification commands are listed in the README and UAT checklist so future changes can be checked consistently.

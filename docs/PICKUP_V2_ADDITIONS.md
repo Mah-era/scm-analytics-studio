@@ -61,7 +61,7 @@ The user interface is designed for a non-technical SCM analyst or planner who ma
 | Filters | Gives a consistent drill-down experience across all dashboards. | Users can filter by date, fiscal period, product, SKU, supplier, warehouse, customer, carrier, route, status, lot, batch, UOM, currency, and risk class. |
 | Download buttons | Makes the dashboard actionable outside the app. | Users can export CSV, Excel, PDF, PPTX, chart bundles, glossary, calendar, audit logs, mapping templates, and SQLite backup. |
 | Smart chart controls | Gives users flexible exploratory analysis beyond predefined dashboards. | Users choose chart type, X-axis, Y-axis, color/category, and aggregation. |
-| Local feedback form | Captures user feedback inside the offline app. | Feedback is stored locally in SQLite and can be reviewed/exported later. |
+| Local feedback form | Captures user feedback inside the local Streamlit app. | Feedback is stored locally in SQLite and can be reviewed/exported later. |
 | Missing-data messages | Prevents confusing crashes when a module lacks required fields. | Empty/no-data states guide users to map the needed columns. |
 
 ### Suggested UI/UX Paragraph
@@ -663,4 +663,3 @@ Use this pickup file to add missing detail to the existing v2 report. The report
 11. Algorithm pseudocode.
 12. CLI/API/MCP examples.
 13. Actual test evidence table.
-

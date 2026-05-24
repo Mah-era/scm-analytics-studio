@@ -1,6 +1,6 @@
 # SCM Maker | SCM Analytics Studio
 
-A self-initiated offline Supply Chain Management analytics prototype built with Python, Streamlit, Pandas, Plotly, OpenPyXL, SQLite local storage, local API/MCP-style integration entry points, plugin-style skills/tools, and static/PDF export tools.
+A self-initiated local-first Supply Chain Management analytics prototype built with Python, Streamlit, Pandas, Plotly, OpenPyXL, SQLite local storage, local API/MCP-style integration entry points, plugin-style skills/tools, and PDF/export tools.
 
 This is a local/prototype project intended to demonstrate SCM analytics, digital operations, and decision-support system thinking.
 
@@ -12,12 +12,12 @@ This package includes:
 - Advanced dashboards for executive control tower, forecast generation, forecast accuracy, inventory risk, inventory aging, contract analytics, supplier scorecards, PO aging, carrier/lane performance, warehouse process flow, warehouse productivity, production performance, MRP-lite planning, finance margin bridge, landed cost/cost-to-serve, scenario planning, and data quality command center.
 - Smart chart generator with multiple chart types.
 - KPI formulas for common SCM metrics including OTIF, fill rate, perfect order rate, backorder rate, forecast MAPE/WAPE/bias, ABC/XYZ, safety stock, reorder point, GMROI, PPV-ready columns, landed-cost-ready columns, OEE, yield, scrap, capacity, and cash-to-cash indicators.
-- Offline export options for cleaned data, KPI tables, chart HTML, chart PNG, PDF summary reports, and PowerPoint summaries.
-- Extended offline exports for full dashboard workbook, chart bundle ZIP, validation issue reports, failed-row quarantine, metric/formula glossary, mapping template import/export, calendar export, audit log export, and SQLite backup.
-- Offline sidebar feedback form stored in local SQLite, with feedback review/export in the Data workspace.
+- Local export options for cleaned data, KPI tables, chart HTML, chart PNG, PDF summary reports, and PowerPoint summaries.
+- Extended local exports for full dashboard workbook, chart bundle ZIP, validation issue reports, failed-row quarantine, metric/formula glossary, mapping template import/export, calendar export, audit log export, and SQLite backup.
+- Local sidebar feedback form stored in SQLite, with feedback review/export in the Data workspace.
 - CLI workflow for serving, analyzing, validation-only runs, fixture regression checks, sample generation, SQLite backup/restore, saved mapping use, mapping templates, filters, and local batch-style exports.
 - Workflow Assistant with local tool calling, plugin-style skills, CLI skill/tool execution, and optional LLM summaries when explicitly configured.
-- MCP-style stdio server and local HTTP API for connecting the same offline tools to other local clients.
+- MCP-style stdio server and local HTTP API for connecting the same local tools to other clients.
 - Sample/training datasets containing clean, messy, missing, duplicate, delayed, stockout, dead-stock, forecast-variance, supplier-defect, downtime, and cost-overrun situations.
 
 ## Folder Structure
@@ -212,9 +212,9 @@ You can also run the app from the CLI:
 python cli.py serve
 ```
 
-## Offline Use
+## Local Use
 
-After the dependencies are installed, the app works offline. It does not call cloud APIs or external services.
+After the dependencies are installed, the core app runs locally. It does not require cloud APIs or external services for normal analysis workflows.
 
 ## Recommended First Test
 
@@ -226,7 +226,7 @@ sample_data/sample_scm_data.xlsx
 
 Try the `Integrated_SCM_Data` sheet first because it contains columns for all dashboards.
 
-You can also run the offline feature check:
+You can also run the local feature check:
 
 ```bash
 python tests/regression/offline_feature_check.py
@@ -240,7 +240,7 @@ python -m pytest -q
 
 ## CLI Analysis
 
-Run the full offline analysis with the bundled sample workbook:
+Run the full local analysis with the bundled sample workbook:
 
 ```bash
 python cli.py analyze --output-dir exports/cli_sample
