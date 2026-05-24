@@ -4,6 +4,8 @@ A self-initiated local-first Supply Chain Management analytics prototype built w
 
 This is a local/prototype project intended to demonstrate SCM analytics, digital operations, and decision-support system thinking.
 
+**Live Demo:** https://scm-analytics-studio.onrender.com/
+
 This package includes:
 - A Streamlit app for uploading CSV/XLSX/XLS supply chain data.
 - Auto column detection and manual column mapping.
