@@ -1,0 +1,33 @@
+shipment_id,carrier,route,origin,destination,promised_date,delivery_date,shipment_status,freight_cost,weight_kg,volume_cbm,distance_miles,cost_per_kg,cost_per_mile,late_flag,incoterm,currency
+SHP-LANE-001,Redline Freight,DHK-CTG,Dhaka,Khulna,2026-02-01,2026-01-31,In Transit,447.52,500,1.754,650,0.895,0.6885,N,FOB,BDT
+SHP-LANE-002,BlueRiver Logistics,DHK-KHL,Chattogram,Sylhet,2026-02-03,2026-02-04,Delivered,109.94,80,0.49,85,1.3742,1.2934,Y,CIF,USD
+SHP-LANE-003,NorthStar Transport,CTG-SYL,Dhaka,Rajshahi,2026-02-05,2026-02-06,Delivered,388.13,120,0.721,650,3.2344,0.5971,Y,DAP,BDT
+SHP-LANE-004,Redline Freight,DHK-RAJ,Chattogram,Chattogram,2026-02-07,2026-02-10,Delivered,406.16,900,3.127,430,0.4513,0.9446,Y,EXW,EUR
+SHP-LANE-005,BlueRiver Logistics,DHK-CTG,Dhaka,Khulna,2026-02-09,2026-02-12,Delivered,512.03,900,3.171,650,0.5689,0.7877,Y,FOB,BDT
+SHP-LANE-006,NorthStar Transport,DHK-KHL,Chattogram,Sylhet,2026-02-11,2026-02-12,Delivered,282.38,120,0.697,430,2.3532,0.6567,Y,CIF,USD
+SHP-LANE-007,Redline Freight,CTG-SYL,Dhaka,Rajshahi,2026-02-13,2026-02-14,Delivered,221.6,250,1.134,260,0.8864,0.8523,Y,DAP,BDT
+SHP-LANE-008,BlueRiver Logistics,DHK-RAJ,Chattogram,Chattogram,2026-02-15,2026-02-18,Delivered,261.3,500,1.917,260,0.5226,1.005,Y,EXW,EUR
+SHP-LANE-009,NorthStar Transport,DHK-CTG,Dhaka,Khulna,2026-02-17,2026-02-18,In Transit,143.91,80,0.552,155,1.7989,0.9285,Y,FOB,BDT
+SHP-LANE-010,Redline Freight,DHK-KHL,Chattogram,Sylhet,2026-02-19,2026-02-19,Delivered,407.77,250,0.961,650,1.6311,0.6273,N,CIF,USD
+SHP-LANE-011,BlueRiver Logistics,CTG-SYL,Dhaka,Rajshahi,2026-02-21,2026-02-20,Delivered,280.96,120,0.46,430,2.3413,0.6534,N,DAP,BDT
+SHP-LANE-012,NorthStar Transport,DHK-RAJ,Chattogram,Chattogram,2026-02-23,2026-03-01,Delivered,116.7,120,0.683,85,0.9725,1.3729,Y,EXW,EUR
+SHP-LANE-013,Redline Freight,DHK-CTG,Dhaka,Khulna,2026-02-25,2026-02-26,Delivered,342.19,500,1.799,430,0.6844,0.7958,Y,FOB,BDT
+SHP-LANE-014,BlueRiver Logistics,DHK-KHL,Chattogram,Sylhet,2026-02-27,2026-02-28,Delivered,274.69,80,0.349,430,3.4336,0.6388,Y,CIF,USD
+SHP-LANE-015,NorthStar Transport,CTG-SYL,Dhaka,Rajshahi,2026-03-01,2026-03-02,Delivered,242.07,900,3.378,85,0.269,2.8479,Y,DAP,BDT
+SHP-LANE-016,Redline Freight,DHK-RAJ,Chattogram,Chattogram,2026-03-03,2026-03-06,Delivered,260.94,500,1.857,260,0.5219,1.0036,Y,EXW,EUR
+SHP-LANE-017,BlueRiver Logistics,DHK-CTG,Dhaka,Khulna,2026-03-05,2026-03-05,In Transit,343.45,500,2.008,430,0.6869,0.7987,N,FOB,BDT
+SHP-LANE-018,NorthStar Transport,DHK-KHL,Chattogram,Sylhet,2026-03-07,2026-03-10,Delivered,275.32,900,3.32,155,0.3059,1.7763,Y,CIF,USD
+SHP-LANE-019,Redline Freight,CTG-SYL,Dhaka,Rajshahi,2026-03-09,2026-03-10,Delivered,281.25,120,0.509,430,2.3438,0.6541,Y,DAP,BDT
+SHP-LANE-020,BlueRiver Logistics,DHK-RAJ,Chattogram,Chattogram,2026-03-11,2026-03-10,Delivered,342.21,500,1.801,430,0.6844,0.7958,N,EXW,EUR
+SHP-LANE-021,NorthStar Transport,DHK-CTG,Dhaka,Khulna,2026-03-13,2026-03-19,Delivered,150.62,120,0.736,155,1.2552,0.9717,Y,FOB,BDT
+SHP-LANE-022,Redline Freight,DHK-KHL,Chattogram,Sylhet,2026-03-15,2026-03-18,Delivered,405.47,900,3.011,430,0.4505,0.943,Y,CIF,USD
+SHP-LANE-023,BlueRiver Logistics,CTG-SYL,Dhaka,Rajshahi,2026-03-17,2026-03-20,Delivered,241.39,900,3.265,85,0.2682,2.8399,Y,DAP,BDT
+SHP-LANE-024,NorthStar Transport,DHK-RAJ,Chattogram,Chattogram,2026-03-19,2026-03-25,Delivered,341.73,500,1.721,430,0.6835,0.7947,Y,EXW,EUR
+SHP-LANE-025,Redline Freight,DHK-CTG,Dhaka,Khulna,2026-03-21,2026-03-21,In Transit,193.23,80,0.371,260,2.4154,0.7432,N,FOB,BDT
+SHP-LANE-026,BlueRiver Logistics,DHK-KHL,Chattogram,Sylhet,2026-03-23,2026-03-23,Delivered,342.18,500,1.797,430,0.6844,0.7958,N,CIF,USD
+SHP-LANE-027,NorthStar Transport,CTG-SYL,Dhaka,Rajshahi,2026-03-25,2026-03-25,Delivered,176.41,500,1.768,85,0.3528,2.0754,N,DAP,BDT
+SHP-LANE-028,Redline Freight,DHK-RAJ,Chattogram,Chattogram,2026-03-27,2026-03-28,Delivered,110.4,80,0.566,85,1.38,1.2988,Y,EXW,EUR
+SHP-LANE-029,BlueRiver Logistics,DHK-CTG,Dhaka,Khulna,2026-03-29,2026-03-29,Delivered,116.56,120,0.66,85,0.9713,1.3713,N,FOB,BDT
+SHP-LANE-030,NorthStar Transport,DHK-KHL,Chattogram,Sylhet,2026-03-31,2026-03-30,Delivered,115.48,120,0.48,85,0.9623,1.3586,N,CIF,USD
+SHP-LANE-031,Redline Freight,CTG-SYL,Dhaka,Rajshahi,2026-04-02,2026-04-05,Delivered,281.17,120,0.495,430,2.3431,0.6539,Y,DAP,BDT
+SHP-LANE-032,BlueRiver Logistics,DHK-RAJ,Chattogram,Chattogram,2026-04-04,2026-04-10,Delivered,143.55,80,0.492,155,1.7944,0.9261,Y,EXW,EUR

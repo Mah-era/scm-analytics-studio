@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "scm-analytics-studio": {
+      "command": "python",
+      "args": [
+        "/Users/apple/scm maker/scm_analytics_studio/mcp_server.py"
+      ],
+      "env": {
+        "SCM_ANALYTICS_STUDIO_HOME": "/Users/apple/scm maker/scm_analytics_studio"
+      }
+    }
+  }
+}

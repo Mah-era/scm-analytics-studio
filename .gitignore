@@ -1,0 +1,10 @@
+.DS_Store
+*.DS_Store
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+data/*.sqlite
+data/.matplotlib/
+exports/
+offline_app/offline_app_smoke.png

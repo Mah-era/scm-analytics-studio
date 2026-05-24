@@ -1,0 +1,16 @@
+po_id,supplier,sku,order_date,due_date,received_date,po_status,open_qty,po_age_days
+PO-AGE-001,Alpha Components,SKU-1001,2026-05-06,2026-05-20,,Late,60,5
+PO-AGE-002,Beta Home Goods,SKU-1002,2026-04-27,2026-05-11,,Open,25,14
+PO-AGE-003,Alpha Components,SKU-1003,2026-04-10,2026-04-24,,Open,25,31
+PO-AGE-004,Beta Home Goods,SKU-1004,2026-03-27,2026-04-10,,Late,60,45
+PO-AGE-005,Alpha Components,SKU-1005,2026-02-25,2026-03-11,,Open,200,75
+PO-AGE-006,Beta Home Goods,SKU-1006,2026-05-06,2026-05-20,,Open,25,5
+PO-AGE-007,Alpha Components,SKU-1001,2026-04-27,2026-05-11,,Late,200,14
+PO-AGE-008,Beta Home Goods,SKU-1002,2026-04-10,2026-04-24,,Open,200,31
+PO-AGE-009,Alpha Components,SKU-1003,2026-03-27,2026-04-10,,Open,60,45
+PO-AGE-010,Beta Home Goods,SKU-1004,2026-02-25,2026-03-11,,Late,200,75
+PO-AGE-011,Alpha Components,SKU-1005,2026-05-06,2026-05-20,,Open,200,5
+PO-AGE-012,Beta Home Goods,SKU-1006,2026-04-27,2026-05-11,,Open,200,14
+PO-AGE-013,Alpha Components,SKU-1001,2026-04-10,2026-04-24,,Late,60,31
+PO-AGE-014,Beta Home Goods,SKU-1002,2026-03-27,2026-04-10,,Open,60,45
+PO-AGE-015,Alpha Components,SKU-1003,2026-02-25,2026-03-11,,Open,25,75

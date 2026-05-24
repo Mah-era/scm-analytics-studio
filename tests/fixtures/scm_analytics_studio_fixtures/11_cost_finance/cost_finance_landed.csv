@@ -1,0 +1,17 @@
+order_id,sku,product,customer,revenue,cogs,procurement_cost,logistics_cost,warehouse_cost,cost_category,gross_margin,inventory_value,gmroi,currency
+SO-2026-1000,SKU-1001,AeroBlend Mixer,NorthMart,5760.0,3360.0,3864.0,156.58,72.0,COGS,2400.0,10500.0,0.2286,BDT
+SO-2026-1001,SKU-1002,Nimbus Rice Cooker,MetroBazaar,5225.0,2992.5,3433.5,203.95,85.5,Freight,2232.5,9040.5,0.2469,BDT
+SO-2026-1002,SKU-1003,Luna Desk Lamp,Sunrise Retail,2640.0,1320.0,1512.0,174.26,99.0,Warehouse,1320.0,3888.0,0.3395,BDT
+SO-2026-1003,SKU-1004,Terra Storage Bin,Unicode ক্রেতা,1288.0,604.8,772.2,189.53,100.8,Procurement,683.2,1949.4,0.3505,BDT
+SO-2026-1004,SKU-1005,Pulse Water Bottle,NorthMart,1680.0,672.0,772.8,173.54,126.0,COGS,1008.0,1910.4,0.5276,BDT
+SO-2026-1005,SKU-1006,Orbit Backpack,MetroBazaar,5425.0,2596.25,2897.75,206.75,139.5,Freight,2828.75,7286.25,0.3882,BDT
+SO-2026-1006,SKU-1001,AeroBlend Mixer,Sunrise Retail,7200.0,4200.0,4788.0,170.86,90.0,Warehouse,3000.0,19824.0,0.1513,BDT
+SO-2026-1007,SKU-1002,Nimbus Rice Cooker,Unicode ক্রেতা,4565.0,2614.5,3433.5,183.51,74.7,Procurement,1950.5,7213.5,0.2704,BDT
+SO-2026-1008,SKU-1003,Luna Desk Lamp,NorthMart,2640.0,1320.0,1512.0,166.14,99.0,COGS,1320.0,3192.0,0.4135,BDT
+SO-2026-1009,SKU-1004,Terra Storage Bin,MetroBazaar,1437.5,675.0,772.2,215.12,112.5,Freight,762.5,1636.2,0.466,BDT
+SO-2026-1010,SKU-1005,Pulse Water Bottle,Sunrise Retail,1680.0,672.0,772.8,171.94,126.0,Warehouse,1008.0,1632.0,0.6176,BDT
+SO-2026-1011,SKU-1006,Orbit Backpack,Unicode ক্রেতা,5425.0,2596.25,2897.75,189.1,139.5,Procurement,2828.75,6314.75,0.448,BDT
+SO-2026-1012,SKU-1001,AeroBlend Mixer,NorthMart,7200.0,4200.0,4788.0,162.52,90.0,COGS,3000.0,17388.0,0.1725,BDT
+SO-2026-1013,SKU-1002,Nimbus Rice Cooker,MetroBazaar,5225.0,2992.5,3433.5,208.05,85.5,Freight,2232.5,14206.5,0.1571,BDT
+SO-2026-1014,SKU-1003,Luna Desk Lamp,Sunrise Retail,2304.0,1152.0,1512.0,176.67,86.4,Warehouse,1152.0,2496.0,0.4615,BDT
+SO-2026-1015,SKU-1004,Terra Storage Bin,Unicode ক্রেতা,1437.5,675.0,772.2,183.32,112.5,Procurement,762.5,1323.0,0.5763,BDT

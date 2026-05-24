@@ -1,0 +1,4 @@
+date,sku,product,demand_qty,forecast_qty
+2026-01-01,,AeroBlend Mixer,100,110
+,SKU-1002,Nimbus Rice Cooker,95,90
+2026-01-03,SKU-1003,,,80

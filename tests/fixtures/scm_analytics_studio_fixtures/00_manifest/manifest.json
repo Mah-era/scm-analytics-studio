@@ -1,0 +1,623 @@
+[
+  {
+    "file": "01_happy_path/clean_integrated_scm.csv",
+    "format": "CSV",
+    "purpose": "Clean integrated SCM upload with all major fields for dashboard smoke tests.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "None; consistent ISO dates, numeric columns, complete keys.",
+    "expected_app_behavior": "Load without warnings; auto-map standard fields; compute all core KPIs.",
+    "priority": "P0"
+  },
+  {
+    "file": "01_happy_path/full_integrated_dataset.csv",
+    "format": "CSV",
+    "purpose": "Full integrated dataset spanning demand, inventory, procurement, logistics, warehouse, production, and cost.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "Unicode customer value; varied late shipments, defects, stock levels.",
+    "expected_app_behavior": "Load successfully; dashboards can join dimensions and calculate KPIs.",
+    "priority": "P0"
+  },
+  {
+    "file": "01_happy_path/clean_multisheet_scm.xlsx",
+    "format": "XLSX",
+    "purpose": "Clean multi-sheet workbook for Excel ingestion and cross-sheet joins.",
+    "columns": "Orders, Demand, Inventory, Procurement, Shipments, Production sheet schemas",
+    "edge_cases": "Multiple sheets; one Unicode customer name.",
+    "expected_app_behavior": "Detect sheets; allow sheet selection; preserve numeric/date parsing; calculate module KPIs.",
+    "priority": "P0"
+  },
+  {
+    "file": "02_file_formats/clean_csv_upload.csv",
+    "format": "CSV",
+    "purpose": "Basic CSV upload parser fixture.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "No edge cases.",
+    "expected_app_behavior": "CSV parser reads all rows and standard columns.",
+    "priority": "P0"
+  },
+  {
+    "file": "02_file_formats/legacy_xls_upload.xls",
+    "format": "XLS",
+    "purpose": "Legacy Excel 2 BIFF .xls fixture for old-format upload coverage.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier",
+    "edge_cases": "True binary BIFF2 workbook; single sheet.",
+    "expected_app_behavior": "Accept if legacy XLS supported; otherwise return clear unsupported-engine validation message.",
+    "priority": "P1"
+  },
+  {
+    "file": "02_file_formats/multi_sheet_workbook.xlsx",
+    "format": "XLSX",
+    "purpose": "Generic multi-sheet workbook with relevant and readme sheet.",
+    "columns": "Demand, Inventory, Suppliers, Readme",
+    "edge_cases": "Irrelevant Readme sheet.",
+    "expected_app_behavior": "List sheets; ignore or let user skip non-data sheet.",
+    "priority": "P0"
+  },
+  {
+    "file": "02_file_formats/empty_sheet_workbook.xlsx",
+    "format": "XLSX",
+    "purpose": "Workbook with one empty sheet and one valid sheet.",
+    "columns": "EmptySheet has no columns; ValidDemand has demand schema",
+    "edge_cases": "Completely empty sheet.",
+    "expected_app_behavior": "Warn/skip empty sheet; load valid sheet.",
+    "priority": "P1"
+  },
+  {
+    "file": "02_file_formats/header_only_sheet.xlsx",
+    "format": "XLSX",
+    "purpose": "Header-only sheet to validate no-data handling.",
+    "columns": "HeaderOnly demand headers only",
+    "edge_cases": "Header-only no data rows.",
+    "expected_app_behavior": "Warn no data rows; do not crash; load other sheets.",
+    "priority": "P1"
+  },
+  {
+    "file": "02_file_formats/irrelevant_sheets.xlsx",
+    "format": "XLSX",
+    "purpose": "Workbook with irrelevant cover/notes sheets plus useful data sheet.",
+    "columns": "Cover, Notes, Demand_Data",
+    "edge_cases": "Non-tabular sheets.",
+    "expected_app_behavior": "Auto-detect likely data sheet; allow manual sheet choice.",
+    "priority": "P1"
+  },
+  {
+    "file": "02_file_formats/merged_header_like_issues.xlsx",
+    "format": "XLSX",
+    "purpose": "Workbook with report title and merged-header-like first rows before actual header.",
+    "columns": "Actual headers begin on row 3: SKU, Product, Demand Qty, Forecast Qty",
+    "edge_cases": "Merged title range; pre-header rows.",
+    "expected_app_behavior": "Prompt/select header row or infer row 3; do not treat title row as schema.",
+    "priority": "P2"
+  },
+  {
+    "file": "03_data_cleaning/missing_duplicate_space_case.csv",
+    "format": "CSV",
+    "purpose": "Data cleaning fixture for missing values, duplicates, whitespace, casing, invalid dates.",
+    "columns": "order_id, sku, product, customer, order_date, qty, unit_price, currency",
+    "edge_cases": "Duplicate order_id; spaces; mixed casing; blank customer/currency; invalid dates; invalid qty token.",
+    "expected_app_behavior": "Trim strings; normalize casing where configured; detect duplicates and invalid required fields.",
+    "priority": "P0"
+  },
+  {
+    "file": "03_data_cleaning/mixed_dates_numbers_currency.csv",
+    "format": "CSV",
+    "purpose": "Cleans mixed date formats, currency strings, percentage strings, thousands separators, parentheses negatives.",
+    "columns": "date, sku, qty, unit_cost, margin_pct, variance",
+    "edge_cases": "Mixed date formats; currency symbols; invalid percentage and numeric token.",
+    "expected_app_behavior": "Parse valid dates/numbers; flag impossible values and invalid tokens.",
+    "priority": "P0"
+  },
+  {
+    "file": "03_data_cleaning/invalid_numeric_tokens.csv",
+    "format": "CSV",
+    "purpose": "Invalid numeric token coverage.",
+    "columns": "sku, inventory_qty, unit_cost, demand_qty",
+    "edge_cases": "Text in numeric fields; infinity; overflow; NaN strings.",
+    "expected_app_behavior": "Coerce safe values; report invalid numeric tokens; avoid divide-by-zero errors.",
+    "priority": "P1"
+  },
+  {
+    "file": "03_data_cleaning/blank_required_fields.csv",
+    "format": "CSV",
+    "purpose": "Blank required field validation fixture.",
+    "columns": "date, sku, product, demand_qty, forecast_qty",
+    "edge_cases": "Blank SKU/date/product/demand fields.",
+    "expected_app_behavior": "Fail validation-only for required field rules with row-level messages.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/standard_columns.csv",
+    "format": "CSV",
+    "purpose": "Standard column names for auto-mapping baseline.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty",
+    "edge_cases": "None.",
+    "expected_app_behavior": "Auto-map all fields with high confidence.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/synonym_columns.csv",
+    "format": "CSV",
+    "purpose": "Synonym headers for mapper.",
+    "columns": "Order Date, Item Code, Item Name, Client, Territory, Actual Demand, Units Sold, Fcst",
+    "edge_cases": "Business synonyms for date/SKU/customer/forecast.",
+    "expected_app_behavior": "Auto-map using synonym dictionary; show confidence.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/snake_camel_spaced_headers.csv",
+    "format": "CSV",
+    "purpose": "Snake_case, camelCase, and spaced header variants.",
+    "columns": "orderDate, sku_code, Product Name, customerName, sales_qty, Forecast Qty",
+    "edge_cases": "Mixed naming conventions.",
+    "expected_app_behavior": "Normalize headers and map equivalent fields.",
+    "priority": "P1"
+  },
+  {
+    "file": "04_mapping/missing_required_module_fields.csv",
+    "format": "CSV",
+    "purpose": "Missing required module field fixture.",
+    "columns": "date, product, customer, demand_qty",
+    "edge_cases": "Missing SKU for demand module.",
+    "expected_app_behavior": "Block demand dashboard until required SKU mapping supplied.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/extra_irrelevant_columns.csv",
+    "format": "CSV",
+    "purpose": "Extra irrelevant columns coverage.",
+    "columns": "date, sku, product, demand_qty, forecast_qty, favorite_color, internal_comment",
+    "edge_cases": "Irrelevant non-SCM columns.",
+    "expected_app_behavior": "Load core fields and ignore/store extra columns as metadata.",
+    "priority": "P2"
+  },
+  {
+    "file": "04_mapping/duplicate_ambiguous_headers.csv",
+    "format": "CSV",
+    "purpose": "Duplicate/ambiguous headers for manual mapper.",
+    "columns": "date, sku, sku, product, qty, quantity, forecast",
+    "edge_cases": "Duplicate sku header; qty vs quantity ambiguity.",
+    "expected_app_behavior": "Require manual mapping or disambiguation; no silent incorrect mapping.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/invalid_mapping_scenario.csv",
+    "format": "CSV",
+    "purpose": "Invalid mapping scenario with insufficient fields.",
+    "columns": "date, supplier, carrier, notes",
+    "edge_cases": "Cannot satisfy any module required fields.",
+    "expected_app_behavior": "Return mapping error; validation-only exits non-zero/expected error code.",
+    "priority": "P0"
+  },
+  {
+    "file": "04_mapping/mapping_template.json",
+    "format": "JSON",
+    "purpose": "Manual/auto mapping template for CLI and UI mapping tests.",
+    "columns": "JSON: template_name, version, modules",
+    "edge_cases": "Synonym arrays; module required fields.",
+    "expected_app_behavior": "Import mapping template and apply to fixtures.",
+    "priority": "P0"
+  },
+  {
+    "file": "05_demand_forecasting/seasonal_demand.csv",
+    "format": "CSV",
+    "purpose": "Seasonal demand and forecasting data.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty",
+    "edge_cases": "seasonal pattern; actual vs forecast; MAPE/WAPE/bias-ready.",
+    "expected_app_behavior": "Forecasting dashboard calculates WAPE, MAPE where valid, bias, tracking signal.",
+    "priority": "P0"
+  },
+  {
+    "file": "05_demand_forecasting/sparse_demand.csv",
+    "format": "CSV",
+    "purpose": "Sparse demand and forecasting data.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty",
+    "edge_cases": "sparse pattern; actual vs forecast; MAPE/WAPE/bias-ready.",
+    "expected_app_behavior": "Forecasting dashboard calculates WAPE, MAPE where valid, bias, tracking signal.",
+    "priority": "P1"
+  },
+  {
+    "file": "05_demand_forecasting/volatile_demand_forecast_bias.csv",
+    "format": "CSV",
+    "purpose": "Volatile demand and forecasting data.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty",
+    "edge_cases": "volatile pattern; actual vs forecast; MAPE/WAPE/bias-ready.",
+    "expected_app_behavior": "Forecasting dashboard calculates WAPE, MAPE where valid, bias, tracking signal.",
+    "priority": "P0"
+  },
+  {
+    "file": "05_demand_forecasting/actual_vs_forecast_metrics.csv",
+    "format": "CSV",
+    "purpose": "Small deterministic actual-vs-forecast metrics file.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty",
+    "edge_cases": "Includes one zero-actual row for MAPE exclusion/divide-by-zero handling.",
+    "expected_app_behavior": "Calculate WAPE over all actual demand; MAPE excludes zero actual or reports NA by config.",
+    "priority": "P0"
+  },
+  {
+    "file": "06_inventory/inventory_risk_abc_xyz.csv",
+    "format": "CSV",
+    "purpose": "Inventory risk, ABC/XYZ, safety stock, reorder point fixture.",
+    "columns": "sku, product, warehouse_id, inventory_qty, unit_cost, avg_daily_demand, lead_time_days, safety_stock, reorder_point, abc_class, xyz_class, risk_flag",
+    "edge_cases": "Stockout, overstock, dead stock, slow moving risk flags.",
+    "expected_app_behavior": "Classify inventory; calculate safety stock/ROP and risk dashboards.",
+    "priority": "P0"
+  },
+  {
+    "file": "06_inventory/inventory_aging_lots.csv",
+    "format": "CSV",
+    "purpose": "Lot/batch inventory aging fixture.",
+    "columns": "lot_id, sku, product, warehouse_id, batch_qty, receipt_date, last_movement_date, expiry_date, unit_cost",
+    "edge_cases": "Old lots, last movement dates, expiry dates.",
+    "expected_app_behavior": "Calculate age buckets, slow/dead stock, expiry exposure.",
+    "priority": "P0"
+  },
+  {
+    "file": "06_inventory/stockout_overstock_slow_dead.csv",
+    "format": "CSV",
+    "purpose": "Focused stockout/overstock/slow/dead stock cases.",
+    "columns": "sku, product, warehouse_id, inventory_qty, unit_cost, avg_daily_demand, lead_time_days, safety_stock, reorder_point, abc_class, xyz_class, risk_flag",
+    "edge_cases": "Explicit risk_flag labels.",
+    "expected_app_behavior": "Validate risk categorization output against labels.",
+    "priority": "P1"
+  },
+  {
+    "file": "07_procurement_suppliers/procurement_pos_supplier_scorecard.csv",
+    "format": "CSV",
+    "purpose": "Supplier scorecard and PO procurement fixture.",
+    "columns": "po_id, supplier_id, supplier, sku, product, order_date, due_date, received_date, po_status, order_qty, received_qty, contract_price, standard_price, actual_price, purchase_price_variance, off_contract_flag, defect_qty",
+    "edge_cases": "Open/closed/late/cancelled statuses; PPV; off-contract; defects.",
+    "expected_app_behavior": "Calculate supplier OTD, lead time, defect rate, PPV, off-contract spend.",
+    "priority": "P0"
+  },
+  {
+    "file": "07_procurement_suppliers/po_aging_statuses.csv",
+    "format": "CSV",
+    "purpose": "Open PO aging fixture anchored to 2026-05-11.",
+    "columns": "po_id, supplier, sku, order_date, due_date, received_date, po_status, open_qty, po_age_days",
+    "edge_cases": "Open and late POs across age buckets.",
+    "expected_app_behavior": "Bucket open PO ages and flag overdue rows.",
+    "priority": "P0"
+  },
+  {
+    "file": "07_procurement_suppliers/off_contract_ppv.csv",
+    "format": "CSV",
+    "purpose": "Off-contract spend and PPV fixture.",
+    "columns": "po_id, supplier_id, supplier, sku, product, order_date, due_date, received_date, po_status, order_qty, received_qty, contract_price, standard_price, actual_price, purchase_price_variance, off_contract_flag, defect_qty",
+    "edge_cases": "Off-contract flags; favorable/unfavorable variance.",
+    "expected_app_behavior": "Calculate PPV and off-contract spend by supplier/SKU.",
+    "priority": "P1"
+  },
+  {
+    "file": "08_logistics_transportation/shipments_carrier_lane.csv",
+    "format": "CSV",
+    "purpose": "Carrier/lane logistics fixture.",
+    "columns": "shipment_id, carrier, route, origin, destination, promised_date, delivery_date, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, cost_per_kg, cost_per_mile, late_flag, incoterm, currency",
+    "edge_cases": "Late shipments; status variation; cost per kg/mile; incoterm/currency.",
+    "expected_app_behavior": "Calculate carrier OTD, lane cost, late shipments, freight KPIs.",
+    "priority": "P0"
+  },
+  {
+    "file": "08_logistics_transportation/incoterm_currency_mixed.csv",
+    "format": "CSV",
+    "purpose": "Incoterm and mixed-currency transportation fixture.",
+    "columns": "shipment_id, carrier, route, incoterm, currency, freight_cost, weight_kg, volume_cbm, distance_miles",
+    "edge_cases": "Mixed BDT/USD/EUR currency values.",
+    "expected_app_behavior": "Require currency normalization or warn when no exchange table supplied.",
+    "priority": "P1"
+  },
+  {
+    "file": "09_warehouse/warehouse_ops_sla_cycle_count.csv",
+    "format": "CSV",
+    "purpose": "Warehouse productivity/SLA/cycle count fixture.",
+    "columns": "warehouse_id, warehouse, location, sku, inbound_qty, outbound_qty, space_used_cbm, space_capacity_cbm, picks, accurate_picks, dock_start, dock_end, putaway_minutes, pick_start, pick_end, worker_team, sla_breach_flag, cycle_count_qty, system_qty",
+    "edge_cases": "Dock/putaway/pick timestamps; SLA breach flags; cycle count variances.",
+    "expected_app_behavior": "Calculate accuracy, productivity, SLA breaches, stock variance.",
+    "priority": "P0"
+  },
+  {
+    "file": "09_warehouse/warehouse_locations_stock.csv",
+    "format": "CSV",
+    "purpose": "Stock by warehouse location fixture.",
+    "columns": "warehouse_id, location, sku, on_hand_qty, space_used_cbm, space_capacity_cbm",
+    "edge_cases": "Empty bins, full-ish bins, multi-warehouse locations.",
+    "expected_app_behavior": "Calculate location utilization and stock by location.",
+    "priority": "P1"
+  },
+  {
+    "file": "10_production_mrp/production_oee.csv",
+    "format": "CSV",
+    "purpose": "Production OEE-style fixture.",
+    "columns": "production_order, sku, product, production_date, planned_production_qty, production_qty, capacity_hours, max_capacity_hours, downtime_hours, good_qty, scrap_qty, defective_units, planned_time_hours, run_time_hours, schedule_adherence_pct, availability_pct, quality_pct",
+    "edge_cases": "Downtime, scrap, defects, adherence cases.",
+    "expected_app_behavior": "Calculate schedule adherence, availability, quality, scrap, OEE-style metrics.",
+    "priority": "P0"
+  },
+  {
+    "file": "10_production_mrp/bom_mrp_shortage.csv",
+    "format": "CSV",
+    "purpose": "BOM-like MRP-lite shortage planning fixture.",
+    "columns": "parent_sku, component_sku, quantity_per, component_on_hand, open_po_qty, gross_requirement, net_shortage_qty",
+    "edge_cases": "Parent/component BOM; shortages after on-hand and open PO.",
+    "expected_app_behavior": "Calculate component requirements and shortages.",
+    "priority": "P0"
+  },
+  {
+    "file": "11_cost_finance/cost_finance_landed.csv",
+    "format": "CSV",
+    "purpose": "Finance KPIs, gross margin, GMROI, cost-to-serve fixture.",
+    "columns": "order_id, sku, product, customer, revenue, cogs, procurement_cost, logistics_cost, warehouse_cost, cost_category, gross_margin, inventory_value, gmroi, currency",
+    "edge_cases": "Cost categories, margin, inventory value, GMROI.",
+    "expected_app_behavior": "Calculate revenue, COGS, gross margin, GMROI, cost-to-serve.",
+    "priority": "P0"
+  },
+  {
+    "file": "11_cost_finance/freight_allocation_methods.csv",
+    "format": "CSV",
+    "purpose": "Landed cost freight allocation methods fixture.",
+    "columns": "shipment_id, order_id, sku, units, weight_kg, volume_cbm, revenue, freight_cost_total, allocation_method",
+    "edge_cases": "Allocation by units, weight, volume, revenue.",
+    "expected_app_behavior": "Allocate freight and landed cost by selected method.",
+    "priority": "P1"
+  },
+  {
+    "file": "11_cost_finance/mixed_currency_costs.csv",
+    "format": "CSV",
+    "purpose": "Mixed currency finance fixture.",
+    "columns": "order_id, sku, currency, revenue, cogs, fx_rate_to_bdt",
+    "edge_cases": "BDT/USD/EUR, missing currency/rate.",
+    "expected_app_behavior": "Convert when rate exists; flag missing currency/rate.",
+    "priority": "P1"
+  },
+  {
+    "file": "12_validation_bad_data/bad_data_validation.csv",
+    "format": "CSV",
+    "purpose": "Validation failure fixture for dates, quantities, IDs, outliers, missing currency.",
+    "columns": "row_id, order_id, sku, supplier_id, warehouse_id, order_date, ship_date, planned_date, actual_date, received_date, quantity, unit_price, currency, uom",
+    "edge_cases": "Negative qty; receipt before order; ship before order; actual before planned; outlier price; missing currency; invalid IDs; mixed UOM.",
+    "expected_app_behavior": "Validation-only returns expected row-level errors; dashboards exclude invalid rows.",
+    "priority": "P0"
+  },
+  {
+    "file": "12_validation_bad_data/orphan_rows_multisheet.xlsx",
+    "format": "XLSX",
+    "purpose": "Cross-sheet orphan row validation fixture.",
+    "columns": "SKU_Master, Sales, Suppliers, POs",
+    "edge_cases": "Sales orphan SKU; PO orphan supplier.",
+    "expected_app_behavior": "Detect orphan facts against master sheets.",
+    "priority": "P0"
+  },
+  {
+    "file": "12_validation_bad_data/divide_by_zero_inputs.csv",
+    "format": "CSV",
+    "purpose": "Divide-by-zero KPI input fixture.",
+    "columns": "sku, sales_qty, inventory_qty, cogs, avg_inventory_value, defect_qty, received_qty, forecast_qty, demand_qty",
+    "edge_cases": "Zero denominators for turnover, defect rate, MAPE/WAPE subset.",
+    "expected_app_behavior": "Return NA/0 per policy and no runtime exception.",
+    "priority": "P0"
+  },
+  {
+    "file": "12_validation_bad_data/invalid_ids_mixed_uom.csv",
+    "format": "CSV",
+    "purpose": "Invalid IDs and mixed UOM validation fixture.",
+    "columns": "sku, product_id, supplier_id, warehouse_id, qty, uom",
+    "edge_cases": "Invalid SKU pattern; invalid warehouse/supplier; EA/PCS/CASE mixed UOM.",
+    "expected_app_behavior": "Flag invalid IDs and UOM inconsistency or conversion requirement.",
+    "priority": "P1"
+  },
+  {
+    "file": "13_cli_export/cli_smoke_small.csv",
+    "format": "CSV",
+    "purpose": "Tiny fast fixture for CLI smoke tests.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "Minimal clean rows.",
+    "expected_app_behavior": "Batch CLI should validate and export quickly.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/large_6000_rows.csv",
+    "format": "CSV",
+    "purpose": "Large 6,000-row batch analysis/performance fixture.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "Large volume; varied dates/quantities.",
+    "expected_app_behavior": "Complete batch analysis within performance budget; memory stable.",
+    "priority": "P1"
+  },
+  {
+    "file": "13_cli_export/golden_kpis.json",
+    "format": "JSON",
+    "purpose": "Golden expected KPI values for regression tests.",
+    "columns": "JSON expected KPI formulas/results",
+    "edge_cases": "Deterministic formulas using full integrated dataset.",
+    "expected_app_behavior": "Compare dashboard/CLI KPI output within tolerance 1e-6.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/expected_validation_output.json",
+    "format": "JSON",
+    "purpose": "Expected validation output for bad data fixture.",
+    "columns": "JSON expected_rules",
+    "edge_cases": "Rule IDs and row IDs for validation-only mode.",
+    "expected_app_behavior": "Regression compare normalized validation results.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/export_roundtrip.csv",
+    "format": "CSV",
+    "purpose": "Export roundtrip fixture.",
+    "columns": "order_id, order_date, ship_date, demand_date, sku, product, category, customer_id, customer, region, supplier_id, supplier, warehouse_id, warehouse, inventory_qty, demand_qty, sales_qty, forecast_qty, unit_price, unit_cost, revenue, cogs, po_id, order_qty, received_qty, defect_qty, lead_time_days, promised_delivery_date, actual_delivery_date, shipment_id, carrier, route, origin, destination, shipment_status, freight_cost, weight_kg, volume_cbm, distance_miles, incoterm, currency, production_qty, planned_production_qty, good_qty, scrap_qty, capacity_hours, max_capacity_hours, downtime_hours, receipt_date, last_movement_date",
+    "edge_cases": "Clean deterministic data for import-export comparison.",
+    "expected_app_behavior": "Export then re-import should preserve schema and values.",
+    "priority": "P1"
+  },
+  {
+    "file": "13_cli_export/sqlite_seed.db",
+    "format": "SQLite",
+    "purpose": "SQLite backup/restore seed fixture.",
+    "columns": "Tables: demand, inventory, kpi_expected",
+    "edge_cases": "Offline local database file.",
+    "expected_app_behavior": "Backup/restore commands should preserve table counts and KPI rows.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/batch_regression_set.json",
+    "format": "JSON",
+    "purpose": "Batch regression fixture set descriptor.",
+    "columns": "JSON fixtures list",
+    "edge_cases": "Mixes clean, dirty, mapping, forecasting, validation, large file.",
+    "expected_app_behavior": "CLI fixture-regression command runs all listed fixtures.",
+    "priority": "P0"
+  },
+  {
+    "file": "14_offline_deployment/local_paths_unicode.csv",
+    "format": "CSV",
+    "purpose": "Offline local paths and Unicode data fixture.",
+    "columns": "file_id, local_path, sku, product, customer, qty",
+    "edge_cases": "Windows/Linux/relative local paths; Unicode customer/product-adjacent text.",
+    "expected_app_behavior": "Never call network; safely display paths; parse Unicode.",
+    "priority": "P1"
+  },
+  {
+    "file": "14_offline_deployment/weird filename with spaces & unicode Ω.csv",
+    "format": "CSV",
+    "purpose": "Weird filename coverage.",
+    "columns": "sku, product, customer, qty",
+    "edge_cases": "Spaces, ampersand, Unicode Omega in filename and data.",
+    "expected_app_behavior": "File picker/CLI path quoting works cross-platform.",
+    "priority": "P1"
+  },
+  {
+    "file": "14_offline_deployment/large_memory_pressure_20000_rows.csv",
+    "format": "CSV",
+    "purpose": "Large-file memory pressure fixture with 20,000 rows.",
+    "columns": "date, sku, product, customer, region, demand_qty, sales_qty, forecast_qty, inventory_qty, unit_cost, revenue, cogs",
+    "edge_cases": "Higher row count, Unicode potential from customer set.",
+    "expected_app_behavior": "Streaming/chunked load should stay within memory budget; no network.",
+    "priority": "P2"
+  },
+  {
+    "file": "14_offline_deployment/cross_platform_path_safe.csv",
+    "format": "CSV",
+    "purpose": "Path-safe filename baseline.",
+    "columns": "sku, product, qty, note",
+    "edge_cases": "No spaces/special characters.",
+    "expected_app_behavior": "CLI and UI load without path quoting concerns.",
+    "priority": "P2"
+  },
+  {
+    "file": "00_manifest/manifest.csv",
+    "format": "CSV",
+    "purpose": "Master fixture manifest.",
+    "columns": "file, format, purpose, columns, edge_cases, expected_app_behavior, priority",
+    "edge_cases": "Lists all generated fixtures.",
+    "expected_app_behavior": "Use for fixture discovery and regression selection.",
+    "priority": "P0"
+  },
+  {
+    "file": "00_manifest/manifest.json",
+    "format": "JSON",
+    "purpose": "Master fixture manifest.",
+    "columns": "file, format, purpose, columns, edge_cases, expected_app_behavior, priority",
+    "edge_cases": "Lists all generated fixtures.",
+    "expected_app_behavior": "Use for fixture discovery and regression selection.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/fixture_manifest.csv",
+    "format": "CSV",
+    "purpose": "CLI-accessible copy of fixture manifest.",
+    "columns": "file, format, purpose, columns, edge_cases, expected_app_behavior, priority",
+    "edge_cases": "Lists all generated fixtures.",
+    "expected_app_behavior": "Use for fixture discovery and regression selection.",
+    "priority": "P0"
+  },
+  {
+    "file": "13_cli_export/fixture_manifest.json",
+    "format": "JSON",
+    "purpose": "CLI-accessible copy of fixture manifest.",
+    "columns": "file, format, purpose, columns, edge_cases, expected_app_behavior, priority",
+    "edge_cases": "Lists all generated fixtures.",
+    "expected_app_behavior": "Use for fixture discovery and regression selection.",
+    "priority": "P0"
+  },
+  {
+    "file": "docs/manifest_table.md",
+    "format": "Markdown",
+    "purpose": "Human-readable manifest table for all generated fixture files.",
+    "columns": "file, format, purpose, columns, edge cases, expected behavior, priority",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Use as quick fixture reference.",
+    "priority": "P0"
+  },
+  {
+    "file": "README.md",
+    "format": "Markdown",
+    "purpose": "Top-level fixture pack guide with folder structure, snippets, and golden KPIs.",
+    "columns": "N/A",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Start here for fixture usage.",
+    "priority": "P0"
+  },
+  {
+    "file": "docs/pytest_test_plan.md",
+    "format": "Markdown",
+    "purpose": "Complete pytest strategy and category coverage plan.",
+    "columns": "N/A",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Use to build app-level test suite.",
+    "priority": "P0"
+  },
+  {
+    "file": "docs/cli_regression_commands.md",
+    "format": "Markdown",
+    "purpose": "CLI regression command set for every major fixture category.",
+    "columns": "N/A",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Copy commands into local shell/CI and adapt CLI executable if needed.",
+    "priority": "P0"
+  },
+  {
+    "file": "scripts/run_cli_regression.sh",
+    "format": "Shell",
+    "purpose": "Minimal executable CLI regression smoke script.",
+    "columns": "N/A",
+    "edge_cases": "Assumes app CLI exists.",
+    "expected_app_behavior": "Runs representative smoke, validation, KPI, and batch regression commands.",
+    "priority": "P0"
+  },
+  {
+    "file": "scripts/generate_excel_fixtures.py",
+    "format": "Python",
+    "purpose": "Offline Python code for generating XLSX and legacy XLS fixtures.",
+    "columns": "XLSX sheets, BIFF2 XLS rows",
+    "edge_cases": "No external APIs; openpyxl only for XLSX; stdlib binary writer for XLS.",
+    "expected_app_behavior": "Use as generation reference or adapt into fixture factory.",
+    "priority": "P0"
+  },
+  {
+    "file": "tests/test_fixture_pack.py",
+    "format": "Python",
+    "purpose": "Pytest tests that validate fixture pack integrity and golden KPI math.",
+    "columns": "N/A",
+    "edge_cases": "Uses optional openpyxl for workbook inspection.",
+    "expected_app_behavior": "Run as baseline and adapt for app-level TDD.",
+    "priority": "P0"
+  },
+  {
+    "file": "pytest.ini",
+    "format": "INI",
+    "purpose": "Pytest marker configuration.",
+    "columns": "N/A",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Use for local/CI test organization.",
+    "priority": "P1"
+  },
+  {
+    "file": "00_manifest/pack_summary.json",
+    "format": "JSON",
+    "purpose": "Machine-readable fixture pack summary.",
+    "columns": "fixture_pack, total_manifest_entries, golden_expected, formats",
+    "edge_cases": "N/A",
+    "expected_app_behavior": "Use for quick CI sanity checks.",
+    "priority": "P1"
+  }
+]

@@ -1,0 +1,18 @@
+po_id,supplier_id,supplier,sku,product,order_date,due_date,received_date,po_status,order_qty,received_qty,contract_price,standard_price,actual_price,purchase_price_variance,off_contract_flag,defect_qty
+PO-2026-4000,SUP-ALPHA,Alpha Components,SKU-1001,AeroBlend Mixer,2026-01-01,2026-01-15,,Open,200,0,41.16,42.0,49.56,0.0,Y,0
+PO-2026-4001,SUP-BETA,Beta Home Goods,SKU-1002,Nimbus Rice Cooker,2026-01-05,2026-01-12,2026-01-10,Closed,200,200,30.87,31.5,37.17,1134.0,N,0
+PO-2026-4002,SUP-CITY,Cityline Electrical,SKU-1003,Luna Desk Lamp,2026-01-09,2026-01-23,2026-01-23,Late,150,140,11.76,12.0,12.72,100.8,N,5
+PO-2026-4003,SUP-DELTA,Delta Plastics,SKU-1004,Terra Storage Bin,2026-01-13,2026-01-20,2026-01-18,Cancelled,150,150,5.29,5.4,5.08,-48.0,N,2
+PO-2026-4005,SUP-ALPHA,Alpha Components,SKU-1006,Orbit Backpack,2026-01-21,2026-01-28,2026-01-29,Closed,100,95,16.41,16.75,17.76,95.95,N,1
+PO-2026-4006,SUP-ALPHA,Alpha Components,SKU-1001,AeroBlend Mixer,2026-01-25,2026-02-04,2026-02-02,Late,300,300,41.16,42.0,44.52,756.0,N,1
+PO-2026-4007,SUP-BETA,Beta Home Goods,SKU-1002,Nimbus Rice Cooker,2026-01-29,2026-02-08,2026-02-08,Cancelled,100,100,30.87,31.5,37.17,567.0,Y,2
+PO-2026-4009,SUP-DELTA,Delta Plastics,SKU-1004,Terra Storage Bin,2026-02-06,2026-02-16,2026-02-14,Closed,100,90,5.29,5.4,6.37,87.3,N,1
+PO-2026-4010,SUP-EAST,Eastern Mold Works,SKU-1005,Pulse Water Bottle,2026-02-10,2026-02-20,2026-02-25,Late,200,200,4.7,4.8,5.09,58.0,N,1
+PO-2026-4011,SUP-ALPHA,Alpha Components,SKU-1006,Orbit Backpack,2026-02-14,2026-02-21,2026-02-21,Cancelled,200,195,16.41,16.75,19.77,588.9,N,0
+PO-2026-4013,SUP-BETA,Beta Home Goods,SKU-1002,Nimbus Rice Cooker,2026-02-22,2026-03-08,2026-03-06,Closed,200,200,30.87,31.5,29.61,-378.0,N,2
+PO-2026-4014,SUP-CITY,Cityline Electrical,SKU-1003,Luna Desk Lamp,2026-02-26,2026-03-05,2026-03-03,Late,200,195,11.76,12.0,14.16,421.2,Y,5
+PO-2026-4017,SUP-ALPHA,Alpha Components,SKU-1006,Orbit Backpack,2026-03-10,2026-03-31,2026-03-29,Closed,200,200,16.41,16.75,17.76,202.0,N,2
+PO-2026-4018,SUP-ALPHA,Alpha Components,SKU-1001,AeroBlend Mixer,2026-03-14,2026-03-28,2026-04-02,Late,300,295,41.16,42.0,44.52,743.4,N,1
+PO-2026-4019,SUP-BETA,Beta Home Goods,SKU-1002,Nimbus Rice Cooker,2026-03-18,2026-03-28,2026-04-02,Cancelled,150,145,30.87,31.5,37.17,822.15,N,5
+PO-2026-4021,SUP-DELTA,Delta Plastics,SKU-1004,Terra Storage Bin,2026-03-26,2026-04-05,2026-04-10,Closed,300,290,5.29,5.4,5.72,92.8,Y,5
+PO-2026-4022,SUP-EAST,Eastern Mold Works,SKU-1005,Pulse Water Bottle,2026-03-30,2026-04-09,2026-04-21,Late,150,150,4.7,4.8,5.66,129.0,N,2

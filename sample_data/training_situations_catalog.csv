@@ -1,0 +1,16 @@
+Situation_ID,Situation,Test Columns,Expected App Behavior
+SIT-001,Clean complete SCM transaction data,All core SCM columns,Auto-map most columns and generate all dashboards
+SIT-002,Missing demand value,Demand Units,Show missing value count and allow fill/drop
+SIT-003,Duplicate rows,All columns,Detect duplicate count and optionally drop duplicates
+SIT-004,Mixed date formats,"transaction date, Actual Delivery",Auto-convert valid dates and flag invalid date as NaT
+SIT-005,Currency-like numbers,"Revenue ৳, Total Cost",Strip currency symbols and parse numeric values
+SIT-006,Inconsistent category labels,"Region, Supplier, Warehouse",Show unique categories; user can clean externally or filter
+SIT-007,Stockout event,"Inventory, Demand, Stockout_Event",Show stockout frequency and low inventory signals
+SIT-008,Overstock event,Inventory,Show overstock count by quantile
+SIT-009,Dead stock,"Last_Movement_Date, Inventory",List dead stock candidates older than 90 days
+SIT-010,Late shipment,"Delivery_Date, Promised_Delivery_Date",Calculate on-time rate and late shipment count
+SIT-011,Supplier defect spike,"Defective_Units, Total_Units, Supplier",Calculate supplier defect rate
+SIT-012,Production downtime spike,"Downtime, Date",Show downtime trend
+SIT-013,Forecast variance,"Demand, Forecast",Calculate forecast accuracy and actual vs forecast chart
+SIT-014,Low gross margin product,"Revenue, Cost, Product",Show gross margin trend and product cost ranking
+SIT-015,Warehouse space utilization,"Space_Used, Space_Capacity, Warehouse",Calculate storage utilization by warehouse

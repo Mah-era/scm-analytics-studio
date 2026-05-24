@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCM Analytics Studio Offline</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="mark">SCM</span>
+        <div>
+          <h1>Analytics Studio</h1>
+          <p>Offline browser edition</p>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2>Load Data</h2>
+        <label class="drop-zone" for="fileInput">
+          <span>Upload CSV or Excel</span>
+          <small>.csv, .xlsx, .xls</small>
+        </label>
+        <input id="fileInput" type="file" accept=".csv,.xlsx,.xls">
+        <button id="sampleBtn" class="primary">Use bundled sample</button>
+        <label class="field">
+          <span>Sheet</span>
+          <select id="sheetSelect"></select>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Clean Data</h2>
+        <label><input id="normalizeColumns" type="checkbox" checked> Normalize column names</label>
+        <label><input id="convertTypes" type="checkbox" checked> Auto-convert dates and numbers</label>
+        <label><input id="dropDuplicates" type="checkbox"> Drop duplicate rows</label>
+        <label class="field">
+          <span>Missing values</span>
+          <select id="missingStrategy">
+            <option value="keep">Keep as-is</option>
+            <option value="drop_rows">Drop rows</option>
+            <option value="fill_zero">Fill zero</option>
+            <option value="fill_forward">Fill forward</option>
+            <option value="fill_median_mode">Median / mode</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Workspace</h2>
+        <div class="segmented" id="workspaceTabs">
+          <button data-workspace="planning" class="active">Planning</button>
+          <button data-workspace="operations">Operations</button>
+          <button data-workspace="finance">Finance</button>
+          <button data-workspace="data">Data</button>
+          <button data-workspace="exports">Exports</button>
+        </div>
+      </section>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div>
+          <h1>SCM Analytics Studio</h1>
+          <p id="sourceSummary">Load a local CSV or Excel workbook to begin. Everything runs in this browser.</p>
+        </div>
+        <div class="actions">
+          <button id="exportCleanBtn">Cleaned CSV</button>
+          <button id="exportKpiBtn">KPI CSV</button>
+          <button id="exportMappingBtn">Mapping JSON</button>
+        </div>
+      </header>
+
+      <section id="emptyState" class="empty">
+        <h2>Offline ready</h2>
+        <p>Upload an Excel workbook or CSV file, or open the bundled sample. No backend, internet, or database is required.</p>
+      </section>
+
+      <section id="appShell" class="hidden">
+        <div class="workspace-title">
+          <h2 id="workspaceTitle">Planning Workspace</h2>
+          <p id="workspaceDescription">Executive control, demand, inventory policy, and scenario signals.</p>
+        </div>
+
+        <section class="metric-grid" id="metricGrid"></section>
+
+        <section class="content-grid">
+          <article class="module wide">
+            <div class="module-head">
+              <h3>Column Mapping</h3>
+              <button id="toggleMapping">Show mapping</button>
+            </div>
+            <div id="mappingPanel" class="mapping hidden"></div>
+          </article>
+
+          <article class="module wide">
+            <div class="module-head">
+              <h3>Smart Chart</h3>
+              <div class="chart-controls">
+                <select id="chartType">
+                  <option value="bar">Bar</option>
+                  <option value="line">Line</option>
+                  <option value="pie">Pie</option>
+                  <option value="scatter">Scatter</option>
+                  <option value="pareto">Pareto</option>
+                </select>
+                <select id="chartX"></select>
+                <select id="chartY"></select>
+                <select id="chartAgg">
+                  <option value="sum">Sum</option>
+                  <option value="average">Average</option>
+                  <option value="count">Count</option>
+                  <option value="min">Min</option>
+                  <option value="max">Max</option>
+                </select>
+              </div>
+            </div>
+            <div id="smartChart" class="chart"></div>
+          </article>
+
+          <article class="module">
+            <h3>Data Quality</h3>
+            <div id="qualityTable"></div>
+          </article>
+
+          <article class="module">
+            <h3>Validation</h3>
+            <div id="validationTable"></div>
+          </article>
+
+          <article class="module wide">
+            <h3 id="detailTitle">Workspace Details</h3>
+            <div id="detailContent"></div>
+          </article>
+
+          <article class="module wide">
+            <h3>Data Preview</h3>
+            <div id="previewTable"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="vendor/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
