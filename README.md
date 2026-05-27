@@ -2,6 +2,8 @@
 
 A fully offline Supply Chain Management analytics app built with Python, Streamlit, Pandas, Plotly, OpenPyXL, SQLite local storage, and static/PDF export tools.
 
+Live demo: https://scm-analytics-studio.onrender.com/
+
 This package includes:
 - A Streamlit app for uploading CSV/XLSX/XLS supply chain data.
 - Auto column detection and manual column mapping.
