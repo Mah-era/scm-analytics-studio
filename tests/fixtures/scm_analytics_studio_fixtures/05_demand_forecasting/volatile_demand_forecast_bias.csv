@@ -1,0 +1,37 @@
+date,sku,product,customer,region,demand_qty,sales_qty,forecast_qty
+2024-01-01,SKU-1001,AeroBlend Mixer,NorthMart,North,67,67,75
+2024-01-31,SKU-1002,Nimbus Rice Cooker,MetroBazaar,Central,232,228,256
+2024-03-01,SKU-1003,Luna Desk Lamp,Sunrise Retail,South,65,60,64
+2024-03-31,SKU-1004,Terra Storage Bin,Unicode ক্রেতা,East,37,37,33
+2024-04-30,SKU-1005,Pulse Water Bottle,NorthMart,North,97,96,114
+2024-05-30,SKU-1006,Orbit Backpack,MetroBazaar,Central,116,115,134
+2024-06-29,SKU-1001,AeroBlend Mixer,Sunrise Retail,South,219,215,253
+2024-07-29,SKU-1002,Nimbus Rice Cooker,Unicode ক্রেতা,East,152,149,175
+2024-08-28,SKU-1003,Luna Desk Lamp,NorthMart,North,68,63,69
+2024-09-27,SKU-1004,Terra Storage Bin,MetroBazaar,Central,156,153,177
+2024-10-27,SKU-1005,Pulse Water Bottle,Sunrise Retail,South,172,167,183
+2024-11-26,SKU-1006,Orbit Backpack,Unicode ক্রেতা,East,31,26,36
+2024-12-26,SKU-1001,AeroBlend Mixer,NorthMart,North,120,119,127
+2025-01-25,SKU-1002,Nimbus Rice Cooker,MetroBazaar,Central,71,68,86
+2025-02-24,SKU-1003,Luna Desk Lamp,Sunrise Retail,South,78,76,82
+2025-03-26,SKU-1004,Terra Storage Bin,Unicode ক্রেতা,East,152,149,162
+2025-04-25,SKU-1005,Pulse Water Bottle,NorthMart,North,218,213,235
+2025-05-25,SKU-1006,Orbit Backpack,MetroBazaar,Central,241,241,259
+2025-06-24,SKU-1001,AeroBlend Mixer,Sunrise Retail,South,70,67,81
+2025-07-24,SKU-1002,Nimbus Rice Cooker,Unicode ক্রেতা,East,151,151,171
+2025-08-23,SKU-1003,Luna Desk Lamp,NorthMart,North,77,74,76
+2025-09-22,SKU-1004,Terra Storage Bin,MetroBazaar,Central,124,122,142
+2025-10-22,SKU-1005,Pulse Water Bottle,Sunrise Retail,South,167,162,194
+2025-11-21,SKU-1006,Orbit Backpack,Unicode ক্রেতা,East,149,147,162
+2025-12-21,SKU-1001,AeroBlend Mixer,NorthMart,North,95,91,97
+2026-01-20,SKU-1002,Nimbus Rice Cooker,MetroBazaar,Central,216,216,241
+2026-02-19,SKU-1003,Luna Desk Lamp,Sunrise Retail,South,48,44,58
+2026-03-21,SKU-1004,Terra Storage Bin,Unicode ক্রেতা,East,220,216,237
+2026-04-20,SKU-1005,Pulse Water Bottle,NorthMart,North,57,57,58
+2026-05-20,SKU-1006,Orbit Backpack,MetroBazaar,Central,217,214,240
+2026-06-19,SKU-1001,AeroBlend Mixer,Sunrise Retail,South,60,59,75
+2026-07-19,SKU-1002,Nimbus Rice Cooker,Unicode ক্রেতা,East,234,230,253
+2026-08-18,SKU-1003,Luna Desk Lamp,NorthMart,North,43,39,56
+2026-09-17,SKU-1004,Terra Storage Bin,MetroBazaar,Central,225,224,250
+2026-10-17,SKU-1005,Pulse Water Bottle,Sunrise Retail,South,102,99,112
+2026-11-16,SKU-1006,Orbit Backpack,Unicode ক্রেতা,East,86,84,106

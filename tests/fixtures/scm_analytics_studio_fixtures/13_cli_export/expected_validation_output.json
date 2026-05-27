@@ -1,0 +1,56 @@
+{
+  "source_file": "12_validation_bad_data/bad_data_validation.csv",
+  "expected_error_count_min": 10,
+  "expected_rules": [
+    {
+      "rule_id": "NEGATIVE_QUANTITY",
+      "row_id": "BAD-001",
+      "field": "quantity"
+    },
+    {
+      "rule_id": "SHIP_BEFORE_ORDER",
+      "row_id": "BAD-001",
+      "field": "ship_date"
+    },
+    {
+      "rule_id": "RECEIPT_BEFORE_ORDER",
+      "row_id": "BAD-001",
+      "field": "received_date"
+    },
+    {
+      "rule_id": "ACTUAL_BEFORE_PLANNED",
+      "row_id": "BAD-001",
+      "field": "actual_date"
+    },
+    {
+      "rule_id": "INVALID_SKU",
+      "row_id": "BAD-002",
+      "field": "sku"
+    },
+    {
+      "rule_id": "INVALID_SUPPLIER",
+      "row_id": "BAD-002",
+      "field": "supplier_id"
+    },
+    {
+      "rule_id": "INVALID_WAREHOUSE",
+      "row_id": "BAD-002",
+      "field": "warehouse_id"
+    },
+    {
+      "rule_id": "UNIT_PRICE_OUTLIER",
+      "row_id": "BAD-002",
+      "field": "unit_price"
+    },
+    {
+      "rule_id": "MISSING_CURRENCY",
+      "row_id": "BAD-002",
+      "field": "currency"
+    },
+    {
+      "rule_id": "ZERO_QUANTITY",
+      "row_id": "BAD-003",
+      "field": "quantity"
+    }
+  ]
+}

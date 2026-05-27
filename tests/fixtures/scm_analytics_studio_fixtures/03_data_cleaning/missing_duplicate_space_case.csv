@@ -1,0 +1,6 @@
+order_id,sku,product,customer,order_date,qty,unit_price,currency
+ SO-1 , SKU-1001 ,AeroBlend Mixer,NorthMart,2026-01-05,100,72.00,BDT
+SO-1,SKU-1001,AeroBlend Mixer,northmart,01/05/2026,100,72.00,bdt
+SO-2,SKU-1002,Nimbus Rice Cooker,MetroBazaar,5-Jan-2026,,55,BDT
+SO-3,SKU-1003,luna desk lamp,,2026/13/01,12x,24.00,
+SO-4,SKU-1004,Terra Storage Bin,Sunrise Retail,not_a_date,-5,11.50,BDT

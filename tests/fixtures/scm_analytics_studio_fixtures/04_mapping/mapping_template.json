@@ -1,0 +1,51 @@
+{
+  "template_name": "SCM Analytics Studio default mapping",
+  "version": "1.0",
+  "modules": {
+    "demand": {
+      "date": [
+        "date",
+        "demand_date",
+        "Order Date"
+      ],
+      "sku": [
+        "sku",
+        "Item Code",
+        "sku_code"
+      ],
+      "actual": [
+        "demand_qty",
+        "Actual Demand"
+      ],
+      "forecast": [
+        "forecast_qty",
+        "Fcst"
+      ]
+    },
+    "inventory": {
+      "sku": [
+        "sku"
+      ],
+      "inventory": [
+        "inventory_qty",
+        "on_hand_qty"
+      ],
+      "unit_cost": [
+        "unit_cost"
+      ]
+    },
+    "procurement": {
+      "po": [
+        "po_id",
+        "PO Number"
+      ],
+      "supplier": [
+        "supplier",
+        "Supplier Name"
+      ],
+      "received": [
+        "received_qty"
+      ]
+    }
+  }
+}

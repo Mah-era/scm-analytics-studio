@@ -1,0 +1,5 @@
+sku,inventory_qty,unit_cost,demand_qty
+SKU-1001,100,42.00,80
+SKU-1002,ten,31.50,95
+SKU-1003,∞,12.00,0
+SKU-1004,1e309,NaN,70

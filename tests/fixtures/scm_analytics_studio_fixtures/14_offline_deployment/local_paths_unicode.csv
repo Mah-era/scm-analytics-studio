@@ -1,0 +1,4 @@
+file_id,local_path,sku,product,customer,qty
+LOCAL-001,C:\Users\qa\fixtures\clean_integrated_scm.csv,SKU-1001,AeroBlend Mixer,NorthMart,100
+LOCAL-002,/home/qa/fixtures/নমুনা/local_paths_unicode.csv,SKU-1002,Nimbus Rice Cooker,ক্রেতা ঢাকা,95
+LOCAL-003,./relative/path/warehouse.csv,SKU-1003,Luna Desk Lamp,München Retail,80

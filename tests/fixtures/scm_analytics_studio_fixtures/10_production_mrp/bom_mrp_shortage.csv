@@ -1,0 +1,5 @@
+parent_sku,component_sku,quantity_per,component_on_hand,open_po_qty,gross_requirement,net_shortage_qty
+FG-COFFEE-KIT,SKU-1001,1.0,35,50,100,15
+FG-COFFEE-KIT,SKU-1003,2.0,160,0,100,40
+FG-TRAVEL-BUNDLE,SKU-1005,1.0,25,0,80,55
+FG-TRAVEL-BUNDLE,SKU-1006,1.0,100,25,80,0

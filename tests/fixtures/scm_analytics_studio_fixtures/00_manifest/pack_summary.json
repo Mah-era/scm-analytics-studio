@@ -1,0 +1,23 @@
+{
+  "fixture_pack": "SCM Analytics Studio",
+  "total_manifest_entries": 68,
+  "golden_expected": {
+    "fill_rate": 0.981903,
+    "on_time_delivery_rate": 0.833333,
+    "forecast_wape": 0.055684,
+    "inventory_turnover": 5.548615,
+    "supplier_defect_rate": 0.003251
+  },
+  "created_at_context": "Synthetic fixture pack generated offline.",
+  "formats": [
+    "CSV",
+    "INI",
+    "JSON",
+    "Markdown",
+    "Python",
+    "SQLite",
+    "Shell",
+    "XLS",
+    "XLSX"
+  ]
+}

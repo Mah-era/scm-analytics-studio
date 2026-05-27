@@ -1,0 +1,13 @@
+sku,product,warehouse_id,inventory_qty,unit_cost,avg_daily_demand,lead_time_days,safety_stock,reorder_point,abc_class,xyz_class,risk_flag
+SKU-1001,AeroBlend Mixer,WH-DHK,60,42.0,7.33,14,58,160,A,X,stockout
+SKU-1002,Nimbus Rice Cooker,WH-CTG,900,31.5,1.5,10,19,34,B,Y,overstock
+SKU-1003,Luna Desk Lamp,WH-KHL,210,12.0,2.5,7,22,39,B,Y,ok
+SKU-1004,Terra Storage Bin,WH-DHK,360,5.4,0.6,21,24,36,C,Z,overstock
+SKU-1005,Pulse Water Bottle,WH-CTG,800,4.8,0.17,30,31,36,C,Z,overstock
+SKU-1006,Orbit Backpack,WH-KHL,35,16.75,4.67,8,36,73,A,X,stockout
+SKU-1001,AeroBlend Mixer,WH-DHK,500,42.0,0.0,12,12,12,C,Z,dead_stock
+SKU-1002,Nimbus Rice Cooker,WH-CTG,80,31.5,10.0,16,76,236,A,Y,stockout
+SKU-1003,Luna Desk Lamp,WH-KHL,500,12.0,2.0,6,18,30,B,X,overstock
+SKU-1004,Terra Storage Bin,WH-DHK,700,5.4,0.4,25,27,37,C,Z,overstock
+SKU-1005,Pulse Water Bottle,WH-CTG,1000,4.8,0.07,40,40,42,C,Z,overstock
+SKU-1006,Orbit Backpack,WH-KHL,115,16.75,3.0,10,28,58,B,Y,ok

@@ -1,0 +1,12 @@
+{
+  "name": "batch_regression_fixture_set",
+  "fixtures": [
+    "01_happy_path/full_integrated_dataset.csv",
+    "03_data_cleaning/mixed_dates_numbers_currency.csv",
+    "04_mapping/synonym_columns.csv",
+    "05_demand_forecasting/actual_vs_forecast_metrics.csv",
+    "12_validation_bad_data/bad_data_validation.csv",
+    "13_cli_export/large_6000_rows.csv"
+  ],
+  "offline_only": true
+}

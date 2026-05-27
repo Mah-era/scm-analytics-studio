@@ -1,0 +1,17 @@
+{
+  "name": "inventory_exception_review",
+  "title": "Inventory Exception Review",
+  "category": "Inventory",
+  "description": "Custom example skill that focuses on stockout risk, ABC/XYZ segmentation, and failed-row quarantine.",
+  "tools": [
+    "inventory_risk",
+    "abc_xyz",
+    "failed_rows"
+  ],
+  "prompts": [
+    "Review inventory exceptions",
+    "Find risky SKUs",
+    "Show stockout and data quality issues"
+  ],
+  "params": {}
+}

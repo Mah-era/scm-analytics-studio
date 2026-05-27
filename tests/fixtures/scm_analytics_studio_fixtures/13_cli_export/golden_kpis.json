@@ -1,0 +1,17 @@
+{
+  "source_file": "01_happy_path/full_integrated_dataset.csv",
+  "formula_policy": {
+    "fill_rate": "sum(sales_qty) / sum(demand_qty)",
+    "on_time_delivery_rate": "count(delivered shipments with actual_delivery_date <= promised_delivery_date) / count(delivered shipments)",
+    "forecast_wape": "sum(abs(demand_qty - forecast_qty)) / sum(demand_qty)",
+    "inventory_turnover": "sum(cogs) / average(inventory_qty * unit_cost)",
+    "supplier_defect_rate": "sum(defect_qty) / sum(received_qty)"
+  },
+  "expected": {
+    "fill_rate": 0.981903,
+    "on_time_delivery_rate": 0.833333,
+    "forecast_wape": 0.055684,
+    "inventory_turnover": 5.548615,
+    "supplier_defect_rate": 0.003251
+  }
+}

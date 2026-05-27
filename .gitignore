@@ -1,0 +1,10 @@
+.venv/
+.DS_Store
+*.DS_Store
+__pycache__/
+**/__pycache__/
+*.pyc
+data/*.sqlite
+data/.matplotlib/
+exports/*
+!exports/.gitkeep

@@ -1,0 +1,5 @@
+date,sku,qty,unit_cost,margin_pct,variance
+2026-01-01,SKU-1001,"1,200",৳42.00,34.5%,(125.50)
+01/15/2026,SKU-1002,850,USD 31.50,29%,75
+15-Feb-2026,SKU-1003,2 000,12.00 BDT,bad_pct,(x)
+2026.03.01,SKU-1004,N/A,free,,

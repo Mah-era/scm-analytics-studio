@@ -1,0 +1,4 @@
+sku,product_id,supplier_id,warehouse_id,qty,uom
+BAD SKU,P@001,SUP-ALPHA,WH-DHK,10,EA
+SKU-1001,P-001,SUP-BOGUS,WH-XXX,20,PCS
+SKU-1002,P-002,SUP-BETA,WH-DHK,30,CASE

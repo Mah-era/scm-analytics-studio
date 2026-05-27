@@ -1,0 +1,5 @@
+date,sku,product,customer,region,demand_qty,sales_qty,forecast_qty
+2026-01-01,SKU-1001,AeroBlend Mixer,NorthMart,North,100,96,110
+2026-01-02,SKU-1001,AeroBlend Mixer,NorthMart,North,120,118,100
+2026-01-03,SKU-1002,Nimbus Rice Cooker,MetroBazaar,Central,80,80,84
+2026-01-04,SKU-1002,Nimbus Rice Cooker,MetroBazaar,Central,0,0,20

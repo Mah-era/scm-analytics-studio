@@ -1,0 +1,3 @@
+sku,sales_qty,inventory_qty,cogs,avg_inventory_value,defect_qty,received_qty,forecast_qty,demand_qty
+SKU-1001,0,0,0,0,0,0,100,0
+SKU-1002,50,0,1500,0,2,0,40,50
